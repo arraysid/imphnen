@@ -6,7 +6,7 @@ import { FaDiscord, FaFacebookF } from "react-icons/fa6";
 
 export function Navbar() {
   return (
-    <header className="h-20 border-b-8">
+    <header className="h-20 border-b-4">
       <nav className="mx-auto flex h-full max-w-5xl items-center justify-between">
         <div className="flex gap-x-6">
           <Link href="/" className="text-xl font-bold">

@@ -7,7 +7,7 @@ import "@/styles/marquee.css";
 export function MarqueeSection() {
   return (
     <Marquee
-      className="bg-secondary-background border-b-8 py-3 md:py-4 [&_.animate-marquee-left]:gap-[35px]! md:[&_.animate-marquee-left]:gap-[50px]!"
+      className="bg-secondary-background border-b-4 py-3 md:py-4 [&_.animate-marquee-left]:gap-[35px]! md:[&_.animate-marquee-left]:gap-[50px]!"
       direction="left"
     >
       {Array.from({ length: 8 }).map((_, id) => {
