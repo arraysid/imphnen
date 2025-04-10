@@ -1,7 +1,8 @@
+import { Metadata } from 'next'
 import React from 'react'
 import './styles.css'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'IMPHNEN',
 }
 
