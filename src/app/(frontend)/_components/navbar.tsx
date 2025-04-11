@@ -26,7 +26,7 @@ export function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 h-20 border-b-4 bg-white">
-      <nav className="mx-auto flex h-full max-w-5xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <nav className="mx-auto flex h-full max-w-6xl items-center justify-between px-4 lg:px-0">
         {/* Desktop Navigation */}
         <div className="hidden gap-x-6 md:flex">
           {navLinks.map((link) => (
