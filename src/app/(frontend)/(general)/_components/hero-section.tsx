@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { FaLocationArrow } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa6";
 import { Logo } from "../../_components/logo";
 
@@ -77,6 +78,7 @@ export function HeroSection() {
             size="lg"
             className="flex items-center gap-x-2 bg-white hover:bg-gray-50"
           >
+            <FaLocationArrow className="size-5" />
             <span>Create Profile</span>
           </Button>
           <Button
