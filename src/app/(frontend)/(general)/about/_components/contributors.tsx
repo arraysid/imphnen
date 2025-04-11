@@ -1,15 +1,17 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import contributors from "@/data/contributors.json";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { FaGithub } from "react-icons/fa6";
+import { FaArrowRight, FaGithub } from "react-icons/fa6";
 
 export function Contributors() {
   return (
     <>
       <h1 className="my-4 flex items-center justify-center text-4xl font-extrabold underline underline-offset-8">
-        OUR TEAMS & CONTRIBUTORS
+        OUR CONTRIBUTORS
       </h1>
 
       <div className="mx-auto grid max-w-5xl gap-4 lg:grid-cols-3">
@@ -33,6 +35,9 @@ export function Contributors() {
                 <h2 className="text-xl font-semibold tracking-tight">
                   {contributor.name}
                 </h2>
+                <Badge className="bg-white font-bold">
+                  {contributor.postion}
+                </Badge>
                 <a
                   href={contributor.github}
                   target="_blank"
@@ -44,9 +49,13 @@ export function Contributors() {
                 </a>
                 <Link
                   href={`/u/${contributor.username}`}
-                  className={buttonVariants()}
+                  className={cn(
+                    buttonVariants({ size: "sm" }),
+                    "mx-auto flex w-fit items-center",
+                  )}
                 >
                   See Profile
+                  <FaArrowRight className="size-4" />
                 </Link>
               </div>
             </CardContent>
