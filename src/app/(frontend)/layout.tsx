@@ -1,19 +1,20 @@
-import React from 'react'
-import './styles.css'
+import { poppinsFont } from "@/lib/fonts";
+import "@/styles/globals.css";
+import { Metadata } from "next";
+import React from "react";
 
-export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
-}
+export const metadata: Metadata = {
+  title: "IMPHNEN",
+};
 
-export default async function RootLayout(props: { children: React.ReactNode }) {
-  const { children } = props
-
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en">
-      <body>
-        <main>{children}</main>
-      </body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={poppinsFont.className}>{children}</body>
     </html>
-  )
+  );
 }
