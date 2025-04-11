@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { BiDonateHeart } from "react-icons/bi";
 import { FaDiscord, FaFacebookF } from "react-icons/fa6";
 
 export function Navbar() {
@@ -23,6 +24,10 @@ export function Navbar() {
           </Link>
         </div>
         <div className="flex gap-x-3">
+          <Button className="bg-white">
+            <BiDonateHeart className="size-5" />
+            Become Sponsor
+          </Button>
           <Button size="icon" className="bg-white">
             <FaFacebookF className="size-5" />
           </Button>
