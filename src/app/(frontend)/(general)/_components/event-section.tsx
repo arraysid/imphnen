@@ -30,17 +30,6 @@ export function EventSection() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-
-            {/* Optional Image Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-            {/* Optional Text Content */}
-            <div className="absolute right-0 bottom-0 left-0 translate-y-4 p-6 text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-              <h3 className="text-xl font-semibold">Event {item}</h3>
-              <p className="text-sm text-neutral-200">
-                Event description or date
-              </p>
-            </div>
           </Card>
         ))}
       </div>
