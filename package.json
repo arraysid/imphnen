@@ -16,7 +16,6 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@devnomic/marquee": "^1.0.3",
     "@payloadcms/db-postgres": "3.31.0",
     "@payloadcms/next": "3.31.0",
     "@payloadcms/payload-cloud": "3.31.0",
