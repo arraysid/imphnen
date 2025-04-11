@@ -5,12 +5,12 @@ export function StatsSection() {
       <div className="mx-auto hidden h-full max-w-5xl flex-row items-center justify-center gap-x-20 gap-y-4 lg:flex">
         <Stats stats="160K+" description="Members on Facebook" />
         <Stats stats="5K+" description="Members on Discord" />
-        <Stats stats="10Jam+" description="Scrolling Fesnuk" />
+        <Stats stats="1K+" description="Quality Meme Post" />
       </div>
       <div className="flex h-full flex-col items-center justify-center gap-y-6 lg:hidden">
         <Stats stats="160K+" description="Members on Facebook" />
         <Stats stats="5K+" description="Members on Discord" />
-        <Stats stats="10Jam+" description="Scrolling Fesnuk" />
+        <Stats stats="1K+" description="Quality Meme Post" />
       </div>
     </section>
   );

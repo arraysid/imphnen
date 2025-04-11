@@ -6,7 +6,7 @@ export function Logo() {
     <h1
       className={cn(
         fredokaFont.className,
-        "outlined text-9xl text-white select-none",
+        "outlined text-7xl text-white select-none lg:text-9xl",
       )}
     >
       IMPHNEN
