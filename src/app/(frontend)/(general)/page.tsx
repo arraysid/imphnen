@@ -1,3 +1,4 @@
+import { EventSection } from "./_components/event-section";
 import { FeaturesSection } from "./_components/features-section";
 import { HeroSection } from "./_components/hero-section";
 import { MarqueeSection } from "./_components/marquee-section";
@@ -10,6 +11,7 @@ export default async function HomePage() {
       <MarqueeSection />
       <FeaturesSection />
       <StatsSection />
+      <EventSection />
     </main>
   );
 }
