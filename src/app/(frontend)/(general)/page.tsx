@@ -4,7 +4,7 @@ import { StatsSection } from "./_components/stats-section";
 
 export default async function HomePage() {
   return (
-    <main>
+    <main className="mt-20">
       <HeroSection />
       <MarqueeSection />
       <StatsSection />
