@@ -1,6 +1,8 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import contributors from "@/data/contributors.json";
+import Link from "next/link";
 import { FaGithub } from "react-icons/fa6";
 
 export function Contributors() {
@@ -40,6 +42,12 @@ export function Contributors() {
                   <FaGithub className="size-5" />
                   github.com/{contributor.githubHandle}
                 </a>
+                <Link
+                  href={`/u/${contributor.username}`}
+                  className={buttonVariants()}
+                >
+                  See Profile
+                </Link>
               </div>
             </CardContent>
           </Card>
