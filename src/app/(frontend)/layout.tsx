@@ -1,4 +1,4 @@
-import "@/styles/fonts.css";
+import { poppinsFont } from "@/lib/fonts";
 import "@/styles/globals.css";
 import { Metadata } from "next";
 import React from "react";
@@ -14,7 +14,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>{children}</body>
+      <body className={poppinsFont.className}>{children}</body>
     </html>
   );
 }

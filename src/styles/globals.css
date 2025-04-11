@@ -45,3 +45,7 @@
   --font-weight-base: 700;
   --font-weight-heading: 900;
 }
+
+.outlined {
+  -webkit-text-stroke: 2px black;
+}
