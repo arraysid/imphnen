@@ -19,14 +19,14 @@ export function EventSection() {
         {[1, 2, 3].map((item) => (
           <Card
             key={item}
-            className="group relative overflow-hidden rounded-xl transition-shadow hover:shadow-lg"
+            className="group relative overflow-hidden rounded-xl transition-shadow"
           >
             <div className="aspect-square overflow-hidden">
               <Image
                 src={`/event-${item}.jpg`}
                 alt={`Event ${item} photo`}
                 fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className="pointer-events-none object-cover transition-transform duration-300 select-none"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
