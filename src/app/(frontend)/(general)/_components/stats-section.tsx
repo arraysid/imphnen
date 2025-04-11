@@ -5,7 +5,7 @@ export function StatsSection() {
       <div className="mx-auto flex h-full max-w-5xl flex-col items-center justify-center gap-6 lg:flex-row lg:gap-20">
         <Stats stats="160K+" description="Members on Facebook" />
         <Stats stats="5K+" description="Members on Discord" />
-        <Stats stats="1K+" description="Quality Meme Post" />
+        <Stats stats="30K+" description="Quality Meme Post" />
       </div>
     </section>
   );
@@ -14,7 +14,7 @@ export function StatsSection() {
 function Stats({ stats, description }: { stats: string; description: string }) {
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-5xl font-extrabold lg:text-7xl">{stats}</h1>
+      <h1 className="font-mono text-5xl font-extrabold lg:text-7xl">{stats}</h1>
       <span className="text-base font-semibold">{description}</span>
     </div>
   );

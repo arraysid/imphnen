@@ -11,17 +11,6 @@ export function Footer() {
           Harun Alrasyid
         </a>
       </span>
-      <span>
-        Released under MIT License. The source code is available on{" "}
-        <a
-          href="https://github.com/arraysid/imphnen"
-          target="_blank"
-          className="hover:underline hover:underline-offset-4"
-        >
-          Github
-        </a>
-        .
-      </span>
     </footer>
   );
 }
