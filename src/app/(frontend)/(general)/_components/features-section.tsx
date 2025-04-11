@@ -4,6 +4,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Arrow } from "../../_components/arrow";
 import { Logo } from "../../_components/logo";
 
 export function FeaturesSection() {
@@ -17,10 +18,13 @@ export function FeaturesSection() {
         <Logo />
       </div>
 
+      <Arrow className="absolute top-80 left-56 rotate-90" />
+      <Arrow className="absolute top-80 right-56 -rotate-90" />
+
       <div className="mx-auto grid max-w-5xl gap-4 lg:grid-cols-2">
         {contents.map((content) => {
           return (
-            <Card key={content.title} className="bg-[#FFDC58]">
+            <Card key={content.title} className="bg-[#C6EAFA]">
               <CardHeader>
                 <CardTitle>{content.title}</CardTitle>
                 <CardDescription>{content.description}</CardDescription>

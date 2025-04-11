@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function EventSection() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-12 md:py-16 lg:py-24">
+    <section className="relative mx-auto max-w-7xl px-4 py-12 md:py-16 lg:py-24">
       <h1
         className={cn(
           fredokaFont.className,
