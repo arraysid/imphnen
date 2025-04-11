@@ -26,7 +26,7 @@ export function HeroSection() {
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="relative flex h-[calc(100dvh-5rem)] items-center justify-center px-4 md:h-[calc(100dvh-6rem)]"
+      className="relative mt-20 flex h-[calc(100dvh-5rem)] items-center justify-center px-4"
     >
       <div className="absolute inset-0 -z-10 h-full w-full bg-[#C7EAFB] bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"></div>
 
@@ -40,7 +40,7 @@ export function HeroSection() {
         size={50}
       />
       <Star
-        className="absolute bottom-5 left-5 lg:bottom-10 lg:left-10"
+        className="absolute bottom-5 left-5 lg:right-10 lg:bottom-10"
         size={50}
       />
 
