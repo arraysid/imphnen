@@ -18,8 +18,8 @@ export function FeaturesSection() {
         <Logo />
       </div>
 
-      <Arrow className="absolute top-80 left-56 rotate-90" />
-      <Arrow className="absolute top-80 right-56 -rotate-90" />
+      <Arrow className="absolute top-80 left-56 hidden rotate-90 lg:block" />
+      <Arrow className="absolute top-80 right-56 hidden -rotate-90 lg:block" />
 
       <div className="mx-auto grid max-w-5xl gap-4 lg:grid-cols-2">
         {contents.map((content) => {
