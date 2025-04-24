@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "IMPHNEN | Merchandise",
+  title: "IMPHNEN | Members",
 };
 
 export default function Page() {
