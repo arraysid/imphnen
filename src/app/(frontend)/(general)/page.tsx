@@ -9,8 +9,8 @@ export default async function HomePage() {
     <main className="mt-20">
       <HeroSection />
       <MarqueeSection />
-      <StatsSection />
       <FeaturesSection />
+      <StatsSection />
       <EventSection />
     </main>
   );
