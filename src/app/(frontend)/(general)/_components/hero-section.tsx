@@ -1,9 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { FaLocationArrow } from "react-icons/fa";
-import { FaArrowRight } from "react-icons/fa6";
+import { MdEventNote } from "react-icons/md";
 import { Logo } from "../../_components/logo";
 import { Star } from "../../_components/star";
 
@@ -82,13 +84,16 @@ export function HeroSection() {
             <FaLocationArrow className="size-5" />
             <span>Create Profile</span>
           </Button>
-          <Button
-            size="lg"
-            className="flex items-center gap-x-2 bg-white hover:bg-gray-50"
+          <Link
+            href="/events"
+            className={cn(
+              buttonVariants({ size: "lg" }),
+              "flex items-center gap-x-2 bg-white hover:bg-gray-50",
+            )}
           >
-            <span>Join Community</span>
-            <FaArrowRight className="size-5" />
-          </Button>
+            <MdEventNote className="size-7" />
+            <span>Explore Event</span>
+          </Link>
         </motion.div>
       </motion.div>
     </motion.section>
