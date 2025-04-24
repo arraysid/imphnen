@@ -12,6 +12,7 @@ export default async function HomePage() {
       <FeaturesSection />
       <StatsSection />
       <EventSection />
+      <MarqueeSection />
     </main>
   );
 }

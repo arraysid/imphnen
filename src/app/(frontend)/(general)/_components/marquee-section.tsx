@@ -4,12 +4,10 @@ import { Marquee } from "@/components/ui/marquee";
 
 export function MarqueeSection() {
   const items = [
-    "KEREN NIH BUAT SPONSOR SEBENERNYA",
-    "🥱",
-    "TAPI MALAS",
-    "🥱",
-    "AYO SPONSORIN IMPHNEN",
-    "🥱",
+    "BECOME OUR SPONSOR NOW",
+    "|",
+    "YOUR BRAND WILL SHOW HERE",
+    "|",
   ];
 
   return <Marquee items={items} />;
