@@ -1,5 +1,6 @@
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import Link from "next/link";
 import { EVENTS } from "../data";
 import { EventCalendar } from "./event-calendar";
@@ -14,8 +15,10 @@ export function EventList() {
             className="group relative border-4 border-black bg-white shadow-[8px_8px_0_0_#000] transition-all hover:-translate-y-2 hover:shadow-[12px_12px_0_0_#000]"
           >
             <div className="relative h-48 overflow-hidden border-b-4 border-black">
-              <img
+              <Image
                 src={event.image}
+                width={600}
+                height={400}
                 alt=""
                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
