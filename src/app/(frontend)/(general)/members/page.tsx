@@ -65,7 +65,11 @@ export default async function Page() {
                     className="h-8 w-8"
                     asChild
                   >
-                    <Link href={link.url} aria-label={`${link.type} profile`}>
+                    <Link
+                      href={link.url}
+                      target="_blank"
+                      aria-label={`${link.type} profile`}
+                    >
                       {getSocialIcon(link.type)}
                     </Link>
                   </Button>
