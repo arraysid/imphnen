@@ -1,0 +1,16 @@
+import { Metadata } from "next";
+import { EventHero } from "./_components/event-hero";
+import { EventList } from "./_components/event-list";
+
+export const metadata: Metadata = {
+  title: "IMPHNEN | Events",
+};
+
+export default function Page() {
+  return (
+    <main className="mt-24">
+      <EventHero />
+      <EventList />
+    </main>
+  );
+}
