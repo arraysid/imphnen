@@ -1,22 +1,26 @@
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Media } from "@/payload-types";
+import { getAllEvents } from "@/repositories/events/get-all-events";
 import Image from "next/image";
 import Link from "next/link";
 import { EVENTS } from "../data";
 import { EventCalendar } from "./event-calendar";
 
-export function EventList() {
+export async function EventList() {
+  const events = await getAllEvents();
+
   return (
     <section className="mx-auto max-w-7xl px-4 py-16">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {EVENTS.map((event, index) => (
+        {events.map((event) => (
           <article
-            key={index}
+            key={event.id}
             className="group relative border-4 border-black bg-white shadow-[8px_8px_0_0_#000] transition-all hover:-translate-y-2 hover:shadow-[12px_12px_0_0_#000]"
           >
             <div className="relative h-48 overflow-hidden border-b-4 border-black">
               <Image
-                src={event.image}
+                src={(event.thumbnail as Media).url!}
                 width={600}
                 height={400}
                 alt=""
@@ -26,12 +30,12 @@ export function EventList() {
                 <div className="flex items-center gap-2">
                   <div className="border-2 border-white bg-black/80 px-3 py-1">
                     <p className="text-sm font-bold text-white">
-                      {new Date(event.date).toLocaleDateString("en-US", {
+                      {new Date(event.endDate).toLocaleDateString("en-US", {
                         month: "short",
                         day: "numeric",
                       })}
                       <span className="ml-1 text-white/60">
-                        {new Date(event.date).getFullYear()}
+                        {new Date(event.endDate).getFullYear()}
                       </span>
                     </p>
                   </div>
@@ -60,14 +64,14 @@ export function EventList() {
               </h3>
               <p className="mb-4 text-gray-700">{event.description}</p>
               <Link
-                href={event.link}
-                target={event.link.startsWith("http") ? "_blank" : "_self"}
+                href={event.joinUrl}
+                target={event.joinUrl.startsWith("http") ? "_blank" : "_self"}
                 className={cn(
                   buttonVariants({ variant: "reverse" }),
                   "w-full bg-white",
                 )}
               >
-                {event.cta}
+                {event.joinCta}
               </Link>
             </div>
           </article>
