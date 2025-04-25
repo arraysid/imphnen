@@ -9,7 +9,7 @@ export function EventList({ events }: { events: Event[] }) {
   return (
     <section className="mx-auto max-w-7xl px-4 py-16">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {events.map((event) => (
+        {events.slice(0, 6).map((event) => (
           <article
             key={event.id}
             className="group relative border-4 border-black bg-white shadow-[8px_8px_0_0_#000] transition-all hover:-translate-y-2 hover:shadow-[12px_12px_0_0_#000]"
@@ -93,12 +93,6 @@ export function EventList({ events }: { events: Event[] }) {
         <div className="p-6">
           <EventCalendar events={events} />
         </div>
-      </div>
-
-      <div className="mt-12 text-center">
-        <p className="inline-block border-4 border-black bg-yellow-100 p-4 text-lg font-bold shadow-[4px_4px_0_0_#000]">
-          More events coming soon 🔥
-        </p>
       </div>
     </section>
   );
