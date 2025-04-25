@@ -2,402 +2,37 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Contributor, Media } from "@/payload-types";
+import { getAllContributors } from "@/repositories/contributors/get-all-contributors";
 import { Metadata } from "next";
 import Link from "next/link";
 import { BiGlobe } from "react-icons/bi";
 import { FaLinkedin } from "react-icons/fa";
 import { FaFacebook, FaGithub } from "react-icons/fa6";
 
+export const revalidate = 3600;
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "IMPHNEN | Members",
 };
 
-interface Member {
-  id: number;
-  name: string;
-  role: string;
-  avatar: string;
-  socialLinks: { type: string; url: string }[];
-  profileUrl?: string;
-}
+export default async function Page() {
+  const contributors = await getAllContributors();
 
-export default function Page() {
-  const members: Member[] = [
-    {
-      id: 1,
-      name: "Muhammad Alif Ramadhan",
-      role: "Admin",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/muhammad-alif-ramadhan",
-    },
-    {
-      id: 2,
-      name: "Rizky Alam",
-      role: "Admin",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/rizky-alam",
-    },
-    {
-      id: 3,
-      name: "NekoFi",
-      role: "Admin",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/nekofi",
-    },
-    {
-      id: 4,
-      name: "Maulana Sodiqin",
-      role: "Admin",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/maulana-sodiqin",
-    },
-    {
-      id: 5,
-      name: "Andika NP",
-      role: "Admin",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/andika-np",
-    },
-    {
-      id: 6,
-      name: "Anif Yuliansyah",
-      role: "Admin",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/anif-yuliansyah",
-    },
-    {
-      id: 7,
-      name: "Naufal Azmi",
-      role: "Pemula",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/naufal-azmi",
-    },
-    {
-      id: 8,
-      name: "Хошвоп Гзро",
-      role: "Admin",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/хошвоп-гзро",
-    },
-    {
-      id: 9,
-      name: "Othea Glew",
-      role: "Admin",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/othea-glew",
-    },
-    {
-      id: 10,
-      name: "Anka Tama",
-      role: "Admin",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/anka-tama",
-    },
-    {
-      id: 11,
-      name: "Jun Tralala",
-      role: "Moderator",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/jun-tralala",
-    },
-    {
-      id: 12,
-      name: "Fathin Halim",
-      role: "Moderator",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/fathin-halim",
-    },
-    {
-      id: 13,
-      name: "Fahim Ardani",
-      role: "Moderator",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/fahim-ardani",
-    },
-    {
-      id: 14,
-      name: "Muhammad Zakir Ramadhan",
-      role: "Moderator",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/muhammad-zakir-ramadhan",
-    },
-    {
-      id: 15,
-      name: "Ariq Khoiri",
-      role: "Moderator",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/ariq-khoiri",
-    },
-    {
-      id: 16,
-      name: "Zidna Fadla",
-      role: "Moderator",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/zidna-fadla",
-    },
-    {
-      id: 17,
-      name: "Ega Gofur",
-      role: "Moderator",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/ega-gofur",
-    },
-    {
-      id: 18,
-      name: "Muhammad Cikadap",
-      role: "Moderator",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/muhammad-cikadap",
-    },
-    {
-      id: 19,
-      name: "M Azharil Naufal",
-      role: "Moderator",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/m-azharil-naufal",
-    },
-    {
-      id: 20,
-      name: "Ahmad Habibi",
-      role: "Moderator",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/ahmad-habibi",
-    },
-    {
-      id: 21,
-      name: "Taufik Hidayat",
-      role: "Moderator",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/taufik-hidayat",
-    },
-    {
-      id: 22,
-      name: "Hafid Nur",
-      role: "Moderator",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/hafid-nur",
-    },
-    {
-      id: 23,
-      name: "Bima Priambodo",
-      role: "Moderator",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "facebook", url: "https://facebook.com" },
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/bima-priambodo",
-    },
-  ];
-
-  const contributors: Member[] = [
-    {
-      id: 1,
-      name: "Anton Wibowo",
-      role: "Contributor",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "linkedin", url: "https://linkedin.com" },
-        { type: "globe", url: "https://example.com" },
-      ],
-      profileUrl: "/u/anton-wibowo",
-    },
-    {
-      id: 2,
-      name: "Danis Noer",
-      role: "Contributor",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [{ type: "github", url: "https://github.com" }],
-      profileUrl: "/u/danis-noer",
-    },
-    {
-      id: 3,
-      name: "Eko Kurniawan",
-      role: "Contributor",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [{ type: "github", url: "https://github.com" }],
-      profileUrl: "/u/eko-kurniawan",
-    },
-    {
-      id: 4,
-      name: "Sari Amelia",
-      role: "Contributor",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [{ type: "linkedin", url: "https://linkedin.com" }],
-      profileUrl: "/u/sari-amelia",
-    },
-    {
-      id: 5,
-      name: "Yusuf Maulana",
-      role: "Contributor",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "globe", url: "https://example.com" },
-        { type: "github", url: "https://github.com" },
-      ],
-      profileUrl: "/u/yusuf-maulana",
-    },
-    {
-      id: 6,
-      name: "Indah Pratiwi",
-      role: "Contributor",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [{ type: "linkedin", url: "https://linkedin.com" }],
-      profileUrl: "/u/indah-pratiwi",
-    },
-    {
-      id: 7,
-      name: "Budi Santoso",
-      role: "Contributor",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "github", url: "https://github.com" },
-        { type: "globe", url: "https://example.com" },
-      ],
-      profileUrl: "/u/budi-santoso",
-    },
-    {
-      id: 8,
-      name: "Rina Azzahra",
-      role: "Contributor",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [{ type: "linkedin", url: "https://linkedin.com" }],
-      profileUrl: "/u/rina-azzahra",
-    },
-    {
-      id: 9,
-      name: "Fajar Nugroho",
-      role: "Contributor",
-      avatar: "/placeholder.svg?height=80&width=80",
-      socialLinks: [
-        { type: "github", url: "https://github.com" },
-        { type: "linkedin", url: "https://linkedin.com" },
-      ],
-      profileUrl: "/u/fajar-nugroho",
-    },
-  ];
-
-  const renderGrid = (list: Member[]) => (
+  const renderGrid = (list: Contributor[]) => (
     <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      {list.map((m) => (
-        <Card key={m.id} className="bg-white">
+      {list.map((contributor) => (
+        <Card key={contributor.id} className="bg-white">
           <CardContent className="p-6">
             <div className="flex flex-col items-start gap-4 sm:flex-row">
               <Avatar className="border-background h-16 w-16 border-2">
-                <AvatarImage src={m.avatar} alt={m.name} />
+                <AvatarImage
+                  src={(contributor.avatar as Media).url!}
+                  alt={contributor.name}
+                />
                 <AvatarFallback>
-                  {m.name
+                  {contributor.name
                     .split(" ")
                     .map((n) => n[0])
                     .join("")
@@ -406,20 +41,23 @@ export default function Page() {
                 </AvatarFallback>
               </Avatar>
               <div className="min-w-0 flex-1">
-                <h3 className="truncate text-lg font-semibold" title={m.name}>
-                  {m.name}
+                <h3
+                  className="truncate text-lg font-semibold"
+                  title={contributor.name}
+                >
+                  {contributor.name}
                 </h3>
                 <Badge
                   className="text-muted-foreground bg-whtie truncate"
-                  title={m.role}
+                  title={contributor.role}
                 >
-                  {m.role}
+                  {contributor.role}
                 </Badge>
               </div>
             </div>
             <div className="mt-4 flex items-center justify-between">
               <div className="flex gap-x-2">
-                {m.socialLinks.map((link, i) => (
+                {contributor.socialLinks?.map((link, i) => (
                   <Button
                     key={i}
                     variant="neutral"
@@ -433,14 +71,16 @@ export default function Page() {
                   </Button>
                 ))}
               </div>
-              {m.profileUrl && (
+              {contributor.profileUrl && (
                 <Button
                   size="sm"
                   variant="reverse"
                   className="bg-white"
                   asChild
                 >
-                  <Link href={m.profileUrl}>Go to Profile</Link>
+                  <Link href={`/u/${contributor.profileUrl}`}>
+                    Go to Profile
+                  </Link>
                 </Button>
               )}
             </div>
@@ -455,10 +95,6 @@ export default function Page() {
       <Hero />
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <h2 className="text-center text-3xl font-bold tracking-tight">
-          Admin & Moderators
-        </h2>
-        <div className="mt-10">{renderGrid(members)}</div>
-        <h2 className="mt-20 text-center text-3xl font-bold tracking-tight">
           Our Top Contributors
         </h2>
         <div className="mt-10">{renderGrid(contributors)}</div>
