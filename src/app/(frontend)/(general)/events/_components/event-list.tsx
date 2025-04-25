@@ -1,15 +1,11 @@
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Media } from "@/payload-types";
-import { getAllEvents } from "@/repositories/events/get-all-events";
+import { Event, Media } from "@/payload-types";
 import Image from "next/image";
 import Link from "next/link";
-import { EVENTS } from "../data";
 import { EventCalendar } from "./event-calendar";
 
-export async function EventList() {
-  const events = await getAllEvents();
-
+export function EventList({ events }: { events: Event[] }) {
   return (
     <section className="mx-auto max-w-7xl px-4 py-16">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -84,7 +80,7 @@ export async function EventList() {
           <h2 className="text-3xl font-bold">Event Calendar</h2>
         </div>
         <div className="p-6">
-          <EventCalendar events={EVENTS} />
+          <EventCalendar events={events} />
         </div>
       </div>
 

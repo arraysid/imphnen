@@ -1,5 +1,6 @@
 "use client";
 
+import { Event } from "@/payload-types";
 import {
   addMonths,
   eachDayOfInterval,
@@ -12,7 +13,6 @@ import {
 } from "date-fns";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useState } from "react";
-import { Event } from "../types";
 
 interface CustomCalendarProps {
   events: Event[];
@@ -34,7 +34,7 @@ export function EventCalendar({ events }: CustomCalendarProps) {
   }
 
   function getEventsForDate(date: Date): Event[] {
-    return events.filter((event) => isSameDay(new Date(event.date), date));
+    return events.filter((event) => isSameDay(new Date(event.endDate), date));
   }
 
   return (
@@ -95,9 +95,9 @@ export function EventCalendar({ events }: CustomCalendarProps) {
                         key={eventIndex}
                         className="mt-1 truncate rounded bg-orange-100 p-1 text-xs"
                       >
-                        {event.link ? (
+                        {event.joinUrl ? (
                           <a
-                            href={event.link}
+                            href={event.joinUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block truncate hover:underline"
@@ -152,9 +152,9 @@ export function EventCalendar({ events }: CustomCalendarProps) {
                         key={eventIndex}
                         className="rounded bg-orange-100 p-2 text-sm"
                       >
-                        {event.link ? (
+                        {event.joinUrl ? (
                           <a
-                            href={event.link}
+                            href={event.joinUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block hover:underline"
@@ -164,9 +164,9 @@ export function EventCalendar({ events }: CustomCalendarProps) {
                         ) : (
                           event.title
                         )}
-                        {event.date && (
+                        {event.endDate && (
                           <span className="ml-2 text-xs text-gray-600">
-                            {event.date}
+                            {event.endDate}
                           </span>
                         )}
                       </div>
