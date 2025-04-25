@@ -60,14 +60,25 @@ export function EventList({ events }: { events: Event[] }) {
               </h3>
               <p className="mb-4 text-gray-700">{event.description}</p>
               <Link
-                href={event.joinUrl}
+                href={
+                  new Date(event.endDate) < new Date() ? "#" : event.joinUrl
+                }
                 target={event.joinUrl.startsWith("http") ? "_blank" : "_self"}
                 className={cn(
-                  buttonVariants({ variant: "reverse" }),
+                  buttonVariants({
+                    variant:
+                      new Date(event.endDate) < new Date()
+                        ? "noShadow"
+                        : "default",
+                  }),
                   "w-full bg-white",
+                  new Date(event.endDate) < new Date() &&
+                    "pointer-events-none cursor-not-allowed border-0 opacity-50 shadow-none",
                 )}
               >
-                {event.joinCta}
+                {new Date(event.endDate) < new Date()
+                  ? "This event has ended"
+                  : event.joinCta}
               </Link>
             </div>
           </article>
