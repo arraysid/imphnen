@@ -10,7 +10,7 @@ import { BiGlobe } from "react-icons/bi";
 import { FaLinkedin } from "react-icons/fa";
 import { FaFacebook, FaGithub } from "react-icons/fa6";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
