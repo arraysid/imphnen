@@ -27,7 +27,7 @@ export function Navbar() {
   ];
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 h-20 border-b-4 bg-white px-4 lg:px-0">
+    <header className="fixed inset-x-0 top-0 z-50 h-20 border-b-4 bg-white px-4">
       <nav className="mx-auto grid h-full max-w-7xl grid-cols-2 items-center md:grid-cols-3 lg:grid-cols-2">
         <div className="flex items-center">
           <h1
