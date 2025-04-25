@@ -27,17 +27,18 @@ export function Navbar() {
   ];
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 h-20 border-b-4 bg-white px-4">
-      <nav className="mx-auto grid h-full max-w-7xl grid-cols-2 items-center md:grid-cols-3 lg:grid-cols-2">
+    <header className="fixed inset-x-0 top-0 z-50 h-20 border-b-4 bg-white">
+      <nav className="mx-auto grid h-full max-w-7xl grid-cols-2 items-center px-4 sm:px-6 md:grid-cols-3 lg:grid-cols-2 lg:px-8">
         <div className="flex items-center">
-          <h1
+          <Link
+            href="/"
             className={cn(
               fredokaFont.className,
               "outlined block text-4xl text-white select-none md:hidden",
             )}
           >
             IMPHNEN
-          </h1>
+          </Link>
           <div className="hidden gap-x-6 md:flex">
             {navLinks.map((link) => (
               <Link
@@ -104,7 +105,7 @@ export function Navbar() {
               transition={{ duration: 0.2 }}
               className="absolute inset-x-0 top-20 z-50 border-b-4 bg-white shadow-lg md:hidden"
             >
-              <div className="flex flex-col gap-y-4 px-3 py-4">
+              <div className="flex flex-col gap-y-4 p-4">
                 {navLinks.map((link) => (
                   <Link
                     key={link.text}

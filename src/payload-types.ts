@@ -69,6 +69,7 @@ export interface Config {
   collections: {
     users: User;
     events: Event;
+    contributors: Contributor;
     media: Media;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -78,6 +79,7 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     events: EventsSelect<false> | EventsSelect<true>;
+    contributors: ContributorsSelect<false> | ContributorsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -170,6 +172,26 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contributors".
+ */
+export interface Contributor {
+  id: number;
+  name: string;
+  role: 'Contributor' | 'Admin';
+  avatar: number | Media;
+  socialLinks?:
+    | {
+        type: 'facebook' | 'github' | 'linkedin' | 'globe';
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  profileUrl?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -182,6 +204,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'events';
         value: number | Event;
+      } | null)
+    | ({
+        relationTo: 'contributors';
+        value: number | Contributor;
       } | null)
     | ({
         relationTo: 'media';
@@ -257,6 +283,25 @@ export interface EventsSelect<T extends boolean = true> {
   joinCta?: T;
   startDate?: T;
   endDate?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contributors_select".
+ */
+export interface ContributorsSelect<T extends boolean = true> {
+  name?: T;
+  role?: T;
+  avatar?: T;
+  socialLinks?:
+    | T
+    | {
+        type?: T;
+        url?: T;
+        id?: T;
+      };
+  profileUrl?: T;
   updatedAt?: T;
   createdAt?: T;
 }
