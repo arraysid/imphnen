@@ -27,8 +27,8 @@ export function Navbar() {
   ];
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 h-20 border-b-4 bg-white">
-      <nav className="mx-auto grid h-full max-w-6xl grid-cols-2 items-center px-4 md:grid-cols-3 lg:grid-cols-2 lg:px-0">
+    <header className="fixed inset-x-0 top-0 z-50 h-20 border-b-4 bg-white px-4">
+      <nav className="mx-auto grid h-full max-w-7xl grid-cols-2 items-center md:grid-cols-3 lg:grid-cols-2">
         <div className="flex items-center">
           <h1
             className={cn(
@@ -104,7 +104,7 @@ export function Navbar() {
               transition={{ duration: 0.2 }}
               className="absolute inset-x-0 top-20 z-50 border-b-4 bg-white shadow-lg md:hidden"
             >
-              <div className="flex flex-col gap-y-4 px-4 py-4">
+              <div className="flex flex-col gap-y-4 px-3 py-4">
                 {navLinks.map((link) => (
                   <Link
                     key={link.text}
