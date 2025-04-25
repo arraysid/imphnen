@@ -12,7 +12,7 @@ export function EventSection() {
           "outlined text-6xl text-white select-none lg:text-9xl",
         )}
       >
-        GATHERING EVENT
+        MEET UP EVENT
       </h1>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -40,7 +40,7 @@ export function EventSection() {
           "outlined hidden text-4xl text-white select-none lg:flex lg:text-8xl",
         )}
       >
-        IMPHNEN.COM/EVENT
+        IMPHNEN.COM/EVENTS
       </h1>
     </section>
   );
